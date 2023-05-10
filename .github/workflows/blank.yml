@@ -48,6 +48,8 @@ jobs:
     - name: Install Playwright
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test --workers=3
+      run: npx playwright test --workers=1
+    - name: Run Playwright tests 2
+      run: npx playwright test --workers=2
 
 
