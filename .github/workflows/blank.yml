@@ -47,9 +47,9 @@ jobs:
       run: npm ci
     - name: Install Playwright
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
+    - name: Run Playwright serial
       run: npx playwright test --workers=1
-    - name: Run Playwright tests 2
+    - name: Run Playwright parallel
       run: npx playwright test --workers=2
 
 
