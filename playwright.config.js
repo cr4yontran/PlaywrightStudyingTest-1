@@ -28,7 +28,31 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter:  [
+    [
+      "./node_modules/playwright-slack-report/dist/src/SlackReporter.js",
+      {
+        channels: ["pw-tests", "ci"], // provide one or more Slack channels
+        sendResults: "always", // "always" , "on-failure", "off"
+        maxNumberOfFailuresToShow: 100,
+        meta: [
+            {
+                key: 'BUILD_NUMBER',
+                value: '323332-2341',
+            },
+            {
+                key: 'WHATEVER_ENV_VARIABLE',
+                value: process.env.SOME_ENV_VARIABLE, // depending on your CI environment, this can be the branch name, build id, etc
+            },
+            {
+                key: 'HTML Results',
+                value: '<https://your-build-artifacts.my.company.dev/pw/23887/playwright-report/index.html|>',
+            },
+        ],
+        slackOAuthToken: 'xoxb-5245659500131-5258531265505-y1ue0XX1oRj9piNhHyHb5BKe',
+      },
+    ],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions li= ke `await page.goto('/')`. */
