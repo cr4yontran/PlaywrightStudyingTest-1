@@ -24,3 +24,5 @@ test("test 4", async ({ page }) => {
   console.log(page.url());
   console.log(ENV.TEXT);
 });
+
+console.log('alo');
