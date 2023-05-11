@@ -49,7 +49,7 @@ module.exports = defineConfig({
                 value: '<https://your-build-artifacts.my.company.dev/pw/23887/playwright-report/index.html|>',
             },
         ],
-        slackOAuthToken: 'xoxb-5245659500131-5258531265505-y1ue0XX1oRj9piNhHyHb5BKe',
+        slackOAuthToken: 'xoxb-5245659500131-5258569071793-Ubi0fcQd2qOOUyLhIvo10uLY',
       },
     ],
   ],
