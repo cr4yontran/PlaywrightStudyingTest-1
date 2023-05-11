@@ -36,20 +36,6 @@ module.exports = defineConfig({
         channels: ["pw-tests", "ci"], // provide one or more Slack channels
         sendResults: "always", // "always" , "on-failure", "off"
         maxNumberOfFailuresToShow: 100,
-        meta: [
-            {
-                key: 'BUILD_NUMBER',
-                value: '323332-2341',
-            },
-            {
-                key: 'WHATEVER_ENV_VARIABLE',
-                value: process.env.SOME_ENV_VARIABLE, // depending on your CI environment, this can be the branch name, build id, etc
-            },
-            {
-                key: 'HTML Results',
-                value: '<https://your-build-artifacts.my.company.dev/pw/23887/playwright-report/index.html|>',
-            },
-        ],
         slackOAuthToken: TOKEN.OATH_TOKEN,
       },
     ],
