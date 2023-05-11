@@ -2,6 +2,7 @@
 const { defineConfig, devices } = require("@playwright/test");
 import dotenv from "dotenv";
 import path from "path";
+import TOKEN from "./token";
 
 /**
  * Read environment variables from file.
@@ -49,7 +50,7 @@ module.exports = defineConfig({
                 value: '<https://your-build-artifacts.my.company.dev/pw/23887/playwright-report/index.html|>',
             },
         ],
-        slackOAuthToken: 'xoxb-5245659500131-5258569071793-Ubi0fcQd2qOOUyLhIvo10uLY',
+        slackOAuthToken: TOKEN.OATH_TOKEN,
       },
     ],
   ],
