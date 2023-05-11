@@ -25,4 +25,4 @@ test("test 4", async ({ page }) => {
   console.log(ENV.TEXT);
 });
 
-console.log('alo alo');
+console.log('alo');
