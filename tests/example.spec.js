@@ -9,7 +9,7 @@ test("input fiedlds", async ({ page }) => {
   // execute the commands
   
   await page.getByPlaceholder("Full Name").fill("Nguyen Minh Tri");
-  await page.getByPlaceholder("namw@example.com").fill("123@gmail.com");
+  await page.getByPlaceholder("name@example.com").fill("123@gmail.com");
   await page.getByPlaceholder("Current Address").fill("Berlin");
   await page.getByText("Submit").click();
 
