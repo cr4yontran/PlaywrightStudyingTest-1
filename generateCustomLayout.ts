@@ -10,7 +10,7 @@ export default function generateCustomLayoutSimpleExample(
       text: {
         type: 'mrkdwn',
         text:
-          summaryResults.failed === 0
+          summaryResults.failed < 1
             ? ':tada: All tests passed!'
             : `😭${summaryResults.failed} failure(s) out of ${summaryResults.tests.length} tests`,
       },

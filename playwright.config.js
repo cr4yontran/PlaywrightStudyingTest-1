@@ -37,6 +37,7 @@ module.exports = defineConfig({
         sendResults: "always", // "always" , "on-failure", "off"
         maxNumberOfFailuresToShow: 100,
         slackOAuthToken: TOKEN.OATH_TOKEN,
+        
       },
     ],
   ],
