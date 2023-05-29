@@ -51,10 +51,4 @@ jobs:
       run: npx playwright test --workers=1
     - name: Run Playwright parallel
       run: npx playwright test --workers=2
-    -name: Run Playwright Test
-      run: npm run cross-env test_env=test npx playwright test tests/example.2.spec.js
-    -name: Run Playwright Dev
-      run: npm run cross-env test_env=dev npx playwright test tests/example.2.spec.js
-    -name: Run Playwright Staging
-      run: npm run cross-env test_env=test npx playwright test tests/example.2.spec.js
 
