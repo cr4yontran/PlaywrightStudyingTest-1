@@ -51,5 +51,10 @@ jobs:
       run: npx playwright test --workers=1
     - name: Run Playwright parallel
       run: npx playwright test --workers=2
-
+    -name: Run Playwright Test
+      run: npm run env:test
+    -name: Run Playwright Dev
+      run: npm run env:test
+    -name: Run Playwright Staging
+      run: npm run env:test
 

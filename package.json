@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "env:test": "cross-env test_env=test npx playwright test",
-    "env:dev": "cross-env test_env=dev npx playwright test",
-    "env:staging": "cross-env test_env=staging npx playwright test"
+    "env:test": "cross-env test_env=test npx playwright test tests/example.2.spec.js",
+    "env:dev": "cross-env test_env=dev npx playwright test tests/example.2.spec.js",
+    "env:staging": "cross-env test_env=staging npx playwright test tests/example.2.spec.js"
   },
   "keywords": [],
   "author": "",
