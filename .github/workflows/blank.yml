@@ -46,46 +46,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright
+      - name: Install Playwright
         run: npx playwright install --with-deps
-      - name: Install Allure
-        run: npm i -D @playwright/test allure-playwright
-      - name: Install Allure Command Line
-        run: npm install -g allure-commandline --save-dev
       - name: Run Playwright serial
-        run: playwright test --headed --workers=1 --reporter=allure-playwright,line
+        run: npx playwright test --workers=1
       - name: Run Playwright parallel
-        run: playwright test --headed --workers=2 --reporter=allure-playwright,line
-      - name: Generate reports
-        run: allure generate allure-results --clean
-      - name: Get Allure history
-        - uses: actions/checkout@v3
-          if: always()
-          continue-on-error: true
-          with:
-            ref: gh-pages
-            path: gh-pages
-      - name: Test local action
-          uses: ./allure-report-action
-          if: always()
-          id: allure-report
-          with:
-            allure_results: build/allure-results
-            gh_pages: gh-pages
-            allure_report: allure-report
-            allure_history: allure-history
-      - name: Test marketplace action
-          uses: simple-elf/allure-report-action@master
-          if: always()
-          id: allure-report
-          with:
-            allure_results: build/allure-results
-            gh_pages: gh-pages
-            allure_report: allure-report
-            allure_history: allure-history
-      - name: Deploy report to Github Pages
-          if: always()
-          uses: peaceiris/actions-gh-pages@v2
-          env:
-            PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            PUBLISH_BRANCH: gh-pages
-            PUBLISH_DIR: allure-history
+        run: npx playwright test --workers=2
