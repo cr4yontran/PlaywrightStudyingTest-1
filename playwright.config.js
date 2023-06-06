@@ -21,7 +21,6 @@ dotenv.config({ path: path.resolve(__dirname, ".", "my.env") });
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  
   fullyParallel: false,
 
   testDir: `./tests`,
@@ -33,18 +32,9 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter:  [
-    [
-      "./node_modules/playwright-slack-report/dist/src/SlackReporter.js",
-      {
-        channels: ["pw-tests", "ci"], // provide one or more Slack channels
-        sendResults: "always", // "always" , "on-failure", "off"
-        layout: generateCustomLayoutSimpleExample,
-        maxNumberOfFailuresToShow: 100,
-        slackOAuthToken: TOKEN.OATH_TOKEN,
-        
-      },
-    ],
+  reporter: [
+    ["line"],
+    ["allure-playwright", { outputFolder: "allure-results" }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
