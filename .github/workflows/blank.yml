@@ -52,8 +52,23 @@ jobs:
         run: npx playwright test --workers=1
       - name: Run Playwright parallel
         run: npx playwright test --workers=2
+      - name: Generate Allure Report
+        run: npx allure generate --clean
       - name: Store Allure Report
-        uses: actions/upload-artifact@v2
+        run: |
+          mkdir allure-report
+          cp -r allure-results allure-report
+        # You can also use the 'actions/upload-artifact' action if desired:
+        # - name: Store Allure Report
+        #   uses: actions/upload-artifact@v2
+        #   with:
+        #     name: allure-report
+        #     path: allure-report
+
+      - name: Output Allure Report URL
+        id: artifact
+        uses: actions/github-script@v4
         with:
-          name: allure-report
-          path: allure-report
+          script: |
+            const artifactURL = `https://github.com/${process.env.GITHUB_REPOSITORY}/runs/${process.env.GITHUB_RUN_ID}?check_suite_focus=true`;
+            console.log(`::set-output name=url::${artifactURL}`);
