@@ -10,7 +10,7 @@ test("input fiedls", async ({ page }) => {
   await page.getByPlaceholder("Full Name").fill("Tran Phuc Thinh");
   await page.getByPlaceholder("name@example.com").fill("123@gmail.com");
   await page.getByPlaceholder("Current Address").fill("Berlin");
-  await page.getByText("Submit").click();
+  await page.getByText("Submit").click();    
 
   // assertion
 
